@@ -33,6 +33,8 @@ ggplot(data = dat) +
   geom_point(mapping = aes(x = year, y = LH_count + LB_count), colour = "black") +
   labs(x = "Year", y = "Turtle interactions")
 
+ggsave("turtle_data.pdf")
+
 # Transform data to be sent to Stan
 stan.data <- lst(x1 = dat$year-min(dat$year),
                  x2 = seq(from = min(x1), to = max(x1) + 5.75, by = 0.25),
